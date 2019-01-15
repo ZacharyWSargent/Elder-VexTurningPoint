@@ -17,5 +17,5 @@ task main()
 
 		motor[leftRear] = vexRT[Ch3]/3; //Full power is 127
 		motor[leftFore] = vexRT[Ch3]/3; //Full power is 127
-	}
+	} 
 }
