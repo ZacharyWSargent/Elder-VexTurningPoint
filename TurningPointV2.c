@@ -8,7 +8,7 @@
 
 /*
 ] This is the code for Elder High School's Vex Robot for the Turning Point Competition of 2019
-] Last edited: Monday, January 14th, 2019 by Zack Sargent
+] Last edited: Monday, January 27th, 2019 by Zack Sargent
 ]
 ] Controls:
 ] Button 			| Description
@@ -35,9 +35,26 @@
 ]
 */
 
-task main()
+//Competition and duration controls
+#pragma platform(VEX)
+#pragma competitionControl(Competition)
+#pragma AutonomousDuration(0)
+#pragma userControlDuration(120)
+#include "VEX_Competition_Includes.c"	//Main competition background code - DO NOT MODIFY!!!
+
+void pre_auton()		
 {
-    while (true)
+	bStopTasksBetweenModes = true;
+}
+
+task autonomous()		//autonomous program (Ours worked perfectly every time) 
+{
+}
+
+task usercontrol ()
+{
+
+	while (true)				//loop runs forever
 	{
 		motor[rightRear] = vexRT[Ch2]; //Full power is 127
 		motor[rightFore] = vexRT[Ch2]; //Full power is 127
@@ -50,37 +67,38 @@ task main()
 		//Flipper arm Control
 		if(vexRT[Btn6U] == 1)
 		{
-		motor[flipper] = 127;
+		  motor[flipper] = 127;
 		}
 		else if(vexRT[Btn6D] == 1)
 		{
-		motor[flipper] = -127;
+		  motor[flipper] = -127;
 		}//Hold motor arm control
 		else if(vexRT[Btn5U] == 1)
 		{
-		motor[flipper] = 20;
+		  motor[flipper] = 20;
 		}
 		else if(vexRT[Btn5D] == 1)
 		{
-		motor[flipper] = -20;
+			motor[flipper] = -20;
 		}
 		else
 		{
-		motor[flipper] = 0;
+			motor[flipper] = 0;
 		}
 
 		//verticalArm arm control
+
 		if(vexRT[Btn8U] == 1)
 		{
-		motor[verticalArm] = 127;
+			motor[verticalArm] = 127;
 		}
 		else if(vexRT[Btn8D] == 1)
 		{
-		motor[verticalArm] = -127;
+			motor[verticalArm] = -127;
 		}
 		else
 		{
-		motor[verticalArm] = 0;
+			motor[verticalArm] = 0;
 		}
-    	}
+	}
 }
